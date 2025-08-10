@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://bcvjed8h68q1l"]
+
+[ext_resource type="Script" uid="uid://dse74a58xpcvf" path="res://bugs/bugs.gd" id="1_x31b0"]
+[ext_resource type="Texture2D" uid="uid://clnpy2wnswc2y" path="res://bugs/Bugs.png" id="1_xblnh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x31b0"]
+atlas = ExtResource("1_xblnh")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbta1"]
+atlas = ExtResource("1_xblnh")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hiqb2"]
+atlas = ExtResource("1_xblnh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1r35"]
+atlas = ExtResource("1_xblnh")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_04tl3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x31b0")
+}],
+"loop": true,
+"name": &"bee",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbta1")
+}],
+"loop": true,
+"name": &"beetle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hiqb2")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1r35")
+}],
+"loop": true,
+"name": &"moth",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ru8q"]
+radius = 6.0
+
+[node name="Bugs" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_x31b0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_04tl3")
+animation = &"moth"
+frame_progress = 0.638072
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2ru8q")

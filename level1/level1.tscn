@@ -1,0 +1,131 @@
+[gd_scene load_steps=8 format=3 uid="uid://edim5prbkh04"]
+
+[ext_resource type="Script" uid="uid://bsxunmdacdrd0" path="res://level1/level1.gd" id="1_ctxqh"]
+[ext_resource type="Texture2D" uid="uid://crfqg8lq1b33l" path="res://level1/mask.png" id="1_jq2b3"]
+[ext_resource type="Texture2D" uid="uid://bnaicy85v00u7" path="res://level1/Background.png" id="1_lklfg"]
+[ext_resource type="PackedScene" uid="uid://bcvjed8h68q1l" path="res://bugs/bugs.tscn" id="4_871ru"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ol5kc"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jq2b3"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lklfg"]
+normal = Vector2(-1, 0)
+
+[node name="level1" type="Node2D"]
+clip_children = 1
+script = ExtResource("1_ctxqh")
+
+[node name="BackgroundSprite" type="Sprite2D" parent="."]
+clip_children = 1
+scale = Vector2(6, 8)
+texture = ExtResource("1_jq2b3")
+
+[node name="InvertMaskScale" type="Node2D" parent="BackgroundSprite"]
+scale = Vector2(0.167, 0.125)
+
+[node name="bottomGroup" type="Node2D" parent="BackgroundSprite/InvertMaskScale"]
+
+[node name="Sprite2D13" type="Sprite2D" parent="BackgroundSprite/InvertMaskScale/bottomGroup"]
+position = Vector2(-80, 74)
+texture = ExtResource("1_lklfg")
+
+[node name="Sprite2D14" type="Sprite2D" parent="BackgroundSprite/InvertMaskScale/bottomGroup"]
+position = Vector2(-48, 70)
+texture = ExtResource("1_lklfg")
+
+[node name="Sprite2D15" type="Sprite2D" parent="BackgroundSprite/InvertMaskScale/bottomGroup"]
+position = Vector2(-16, 72)
+texture = ExtResource("1_lklfg")
+
+[node name="Sprite2D16" type="Sprite2D" parent="BackgroundSprite/InvertMaskScale/bottomGroup"]
+position = Vector2(16, 70)
+texture = ExtResource("1_lklfg")
+
+[node name="Sprite2D17" type="Sprite2D" parent="BackgroundSprite/InvertMaskScale/bottomGroup"]
+position = Vector2(48, 66)
+texture = ExtResource("1_lklfg")
+
+[node name="Sprite2D18" type="Sprite2D" parent="BackgroundSprite/InvertMaskScale/bottomGroup"]
+position = Vector2(80, 70)
+texture = ExtResource("1_lklfg")
+
+[node name="middleGroup" type="Node2D" parent="BackgroundSprite/InvertMaskScale"]
+
+[node name="Sprite2D7" type="Sprite2D" parent="BackgroundSprite/InvertMaskScale/middleGroup"]
+position = Vector2(-80, 24)
+texture = ExtResource("1_lklfg")
+
+[node name="Sprite2D8" type="Sprite2D" parent="BackgroundSprite/InvertMaskScale/middleGroup"]
+position = Vector2(-48, 20)
+texture = ExtResource("1_lklfg")
+
+[node name="Sprite2D9" type="Sprite2D" parent="BackgroundSprite/InvertMaskScale/middleGroup"]
+position = Vector2(-16, 22)
+texture = ExtResource("1_lklfg")
+
+[node name="Sprite2D10" type="Sprite2D" parent="BackgroundSprite/InvertMaskScale/middleGroup"]
+position = Vector2(16, 20)
+texture = ExtResource("1_lklfg")
+
+[node name="Sprite2D11" type="Sprite2D" parent="BackgroundSprite/InvertMaskScale/middleGroup"]
+position = Vector2(48, 16)
+texture = ExtResource("1_lklfg")
+
+[node name="Sprite2D12" type="Sprite2D" parent="BackgroundSprite/InvertMaskScale/middleGroup"]
+position = Vector2(80, 20)
+texture = ExtResource("1_lklfg")
+
+[node name="topGroup" type="Node2D" parent="BackgroundSprite/InvertMaskScale"]
+
+[node name="Sprite2D1" type="Sprite2D" parent="BackgroundSprite/InvertMaskScale/topGroup"]
+position = Vector2(-80, -64)
+texture = ExtResource("1_lklfg")
+
+[node name="Sprite2D2" type="Sprite2D" parent="BackgroundSprite/InvertMaskScale/topGroup"]
+position = Vector2(-48, -64)
+texture = ExtResource("1_lklfg")
+
+[node name="Sprite2D3" type="Sprite2D" parent="BackgroundSprite/InvertMaskScale/topGroup"]
+position = Vector2(-16, -64)
+texture = ExtResource("1_lklfg")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BackgroundSprite/InvertMaskScale/topGroup"]
+position = Vector2(16, -64)
+texture = ExtResource("1_lklfg")
+
+[node name="Sprite2D5" type="Sprite2D" parent="BackgroundSprite/InvertMaskScale/topGroup"]
+position = Vector2(48, -64)
+texture = ExtResource("1_lklfg")
+
+[node name="Sprite2D6" type="Sprite2D" parent="BackgroundSprite/InvertMaskScale/topGroup"]
+position = Vector2(80, -64)
+texture = ExtResource("1_lklfg")
+
+[node name="Boundaries" type="StaticBody2D" parent="."]
+collision_layer = 8
+
+[node name="GroundBoundary" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(0, -91)
+shape = SubResource("WorldBoundaryShape2D_ol5kc")
+
+[node name="LeftBoundary" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(-96, -42)
+shape = SubResource("WorldBoundaryShape2D_jq2b3")
+
+[node name="RightBoundary" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(96, -42)
+shape = SubResource("WorldBoundaryShape2D_lklfg")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="Bugs" parent="." instance=ExtResource("4_871ru")]
+position = Vector2(-138, 13)
+
+[node name="Bugs3" parent="." instance=ExtResource("4_871ru")]
+position = Vector2(-176, -18)
+
+[node name="Bugs2" parent="." instance=ExtResource("4_871ru")]
+position = Vector2(-259, 71)

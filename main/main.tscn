@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1bd7np7a5lvu"]
+
+[ext_resource type="PackedScene" uid="uid://edim5prbkh04" path="res://level1/level1.tscn" id="1_pjrb6"]
+[ext_resource type="PackedScene" uid="uid://bw8rnbmndpy6y" path="res://frog/froggy.tscn" id="2_xwkvk"]
+[ext_resource type="PackedScene" uid="uid://bcvjed8h68q1l" path="res://bugs/bugs.tscn" id="3_xwkvk"]
+
+[node name="Main" type="Node2D"]
+process_mode = 1
+
+[node name="level1" parent="." instance=ExtResource("1_pjrb6")]
+
+[node name="froggy" parent="." instance=ExtResource("2_xwkvk")]
+position = Vector2(-54, -100)
+
+[node name="Bugs" parent="." instance=ExtResource("3_xwkvk")]
+position = Vector2(-138, 13)
+
+[node name="Bugs3" parent="." instance=ExtResource("3_xwkvk")]
+position = Vector2(-176, -18)
+
+[node name="Bugs2" parent="." instance=ExtResource("3_xwkvk")]
+position = Vector2(-259, 71)
