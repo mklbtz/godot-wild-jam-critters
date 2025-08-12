@@ -129,3 +129,5 @@ position = Vector2(-176, -18)
 
 [node name="Bugs2" parent="." instance=ExtResource("4_871ru")]
 position = Vector2(-259, 71)
+
+[node name="Timer" type="Timer" parent="."]

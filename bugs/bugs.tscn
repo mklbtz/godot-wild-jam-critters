@@ -66,7 +66,7 @@ script = ExtResource("1_x31b0")
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_04tl3")
 animation = &"moth"
-frame_progress = 0.638072
+frame_progress = 0.00591644
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2ru8q")
