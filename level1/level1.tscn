@@ -121,13 +121,11 @@ shape = SubResource("WorldBoundaryShape2D_lklfg")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
 
-[node name="Bugs" parent="." instance=ExtResource("4_871ru")]
-position = Vector2(-138, 13)
+[node name="Bug1" parent="." instance=ExtResource("4_871ru")]
+position = Vector2(-107, 37)
 
-[node name="Bugs3" parent="." instance=ExtResource("4_871ru")]
-position = Vector2(-176, -18)
+[node name="Bug2" parent="." instance=ExtResource("4_871ru")]
+position = Vector2(-129, 79)
 
-[node name="Bugs2" parent="." instance=ExtResource("4_871ru")]
-position = Vector2(-259, 71)
-
-[node name="Timer" type="Timer" parent="."]
+[node name="Bug3" parent="." instance=ExtResource("4_871ru")]
+position = Vector2(-145, 6)

@@ -1,26 +1,24 @@
-extends CharacterBody2D
+class_name Frog	extends CharacterBody2D
 
 @export var speed := 150.0
 @export var jump_velocity := 300.0
-@export var shoot_velocity := 80.0
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
-@onready var tongue: CharacterBody2D = $Tongue
-@onready var tongueTimer: Timer = $Tongue/Timer
+@onready var tongue: Tongue = $Tongue
 
 func _ready() -> void:
-	stop_tongue()
+	pass
 
 
 func _physics_process(delta: float) -> void:
-	var direction = Input.get_axis(&"move_left", &"move_right")
-	var tongue: bool = Input.is_action_just_pressed(&"tongue")
-	var jump: bool = false # no jump yet
+	var direction := Input.get_axis(&"move_left", &"move_right")
+	var shoot := Input.is_action_just_pressed(&"tongue")
+	var jump := false # no jump yet
 
 	set_animation_direction(direction, jump)
 
-	if tongue:
+	if shoot:
 		shoot_tongue()
 	
 	if not is_on_floor(): # no jump yet
@@ -32,15 +30,11 @@ func _physics_process(delta: float) -> void:
 
 
 func stop_tongue():
-	tongue.visible = false
-	tongue.process_mode = Node.PROCESS_MODE_DISABLED
+	tongue.stop()
 
 
 func shoot_tongue():
-	tongue.visible = true
-	tongue.process_mode = Node.PROCESS_MODE_PAUSABLE
-	tongue.velocity = Vector2.DOWN
-	tongue.velocity.y *= shoot_velocity
+	tongue.shoot()
 
 
 func set_animation_direction(direction: int, jump: bool):
@@ -57,3 +51,12 @@ func set_animation_direction(direction: int, jump: bool):
 			sprite.play(&"move")
 	else: 
 		sprite.play(&"move") # jumping?
+
+
+func _on_tongue_body_entered(body: Node) -> void:
+	if body is Bug:
+		tongue.catch(body)
+	elif body == self:
+		tongue.stop()
+	else:
+		print("huh?")
