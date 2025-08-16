@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://e5lk06pl88g3"]
+
+[ext_resource type="PackedScene" uid="uid://bcvjed8h68q1l" path="res://bugs/bugs.tscn" id="1_uaie7"]
+[ext_resource type="Script" uid="uid://b2e0h7eg8tbsk" path="res://bugs/CircularPath.gd" id="1_wg1jf"]
+
+[sub_resource type="Curve2D" id="Curve2D_mia54"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 24, 0, 0, 0, 0, 0, 35, 12, 0, 0, 0, 0, 41, 28, 0, 0, 0, 0, 40, 44, 0, 0, 0, 0, 21, 56, 0, 0, 0, 0, 3, 58, 0, 0, 0, 0, -10, 51, 0, 0, 0, 0, -20, 38, 0, 0, 0, 0, -22, 22, 0, 0, 0, 0, -19, 6, 0, 0, 0, 0, 1, 0)
+}
+point_count = 12
+
+[node name="Bug Path" type="Path2D"]
+curve = SubResource("Curve2D_mia54")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(1, 0)
+rotation = 1.33879
+rotates = false
+cubic_interp = false
+script = ExtResource("1_wg1jf")
+
+[node name="Bugs" parent="PathFollow2D" instance=ExtResource("1_uaie7")]
+position = Vector2(0, 6.247)
+rotation = -1.33343
+script = null

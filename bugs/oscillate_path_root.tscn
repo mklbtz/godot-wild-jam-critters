@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://61k54u3y8k5t"]
+
+[ext_resource type="PackedScene" uid="uid://wcby0thm0eim" path="res://bugs/oscillatepath.tscn" id="1_3o4hw"]
+
+[node name="OscillatePathRoot" type="Node2D"]
+
+[node name="Oscillatepath" parent="." instance=ExtResource("1_3o4hw")]

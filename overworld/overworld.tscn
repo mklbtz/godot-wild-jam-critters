@@ -1,0 +1,181 @@
+[gd_scene load_steps=18 format=3 uid="uid://c8vpb2eqmylhh"]
+
+[ext_resource type="PackedScene" uid="uid://bka4nhsxvw10q" path="res://overworld/overworld_frog.tscn" id="1_6jwp1"]
+[ext_resource type="Texture2D" uid="uid://ppnh4nqdht6f" path="res://overworld/Assets/Overworld.png" id="1_v726c"]
+[ext_resource type="Script" uid="uid://jbb03f1e8yii" path="res://overworld/OverworldCamera.gd" id="3_824ie"]
+[ext_resource type="Script" uid="uid://cm0tsgxws5eqh" path="res://overworld/levels.gd" id="3_nyb65"]
+[ext_resource type="Script" uid="uid://di71xcddjvknt" path="res://overworld/Gate.gd" id="5_omswd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v726c"]
+size = Vector2(146, 445)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nyb65"]
+size = Vector2(205, 448)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_824ie"]
+size = Vector2(807, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_omswd"]
+size = Vector2(56, 776)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4qw5"]
+size = Vector2(506, 201)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87uyu"]
+size = Vector2(864, 138)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xcxp"]
+size = Vector2(76.6746, 361.621)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgqhf"]
+size = Vector2(209, 449)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0ssl"]
+size = Vector2(143.5, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vldoy"]
+size = Vector2(190, 93)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u40xr"]
+size = Vector2(798, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4op41"]
+size = Vector2(193, 159)
+
+[node name="Overworld" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_v726c")
+
+[node name="OverworldFrog" parent="." instance=ExtResource("1_6jwp1")]
+position = Vector2(374, 479)
+scale = Vector2(5, 5)
+
+[node name="OverworldCamera" type="Camera2D" parent="OverworldFrog"]
+position = Vector2(0.199989, 0.199997)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("3_824ie")
+
+[node name="Boundaries" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(-256, 477)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/StaticBody2D"]
+position = Vector2(-68, -49.5)
+shape = SubResource("RectangleShape2D_v726c")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(616, 452)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/StaticBody2D2"]
+position = Vector2(49.5, -25)
+shape = SubResource("RectangleShape2D_nyb65")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(108, 614)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/StaticBody2D3"]
+position = Vector2(46.5, -12.5)
+shape = SubResource("RectangleShape2D_824ie")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(812, -172)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/StaticBody2D4"]
+position = Vector2(-18, -65)
+shape = SubResource("RectangleShape2D_omswd")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(-892, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/StaticBody2D5"]
+position = Vector2(243, 97)
+shape = SubResource("RectangleShape2D_m4qw5")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(-893, -393)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/StaticBody2D6"]
+position = Vector2(241, 104)
+shape = SubResource("RectangleShape2D_m4qw5")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(38, -638)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/StaticBody2D7"]
+position = Vector2(311, -59)
+shape = SubResource("RectangleShape2D_87uyu")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(-292, -531)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/StaticBody2D8"]
+position = Vector2(33.8932, -12.8658)
+rotation = 0.943142
+shape = SubResource("RectangleShape2D_5xcxp")
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(-1058, -81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/StaticBody2D9"]
+position = Vector2(43.5, -13.5)
+shape = SubResource("RectangleShape2D_lgqhf")
+
+[node name="Levels" type="Node" parent="."]
+
+[node name="level 1" type="Area2D" parent="Levels"]
+position = Vector2(-1, 461)
+script = ExtResource("3_nyb65")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Levels/level 1"]
+position = Vector2(-1, -1)
+polygon = PackedVector2Array(7, -20, 7, 16, 72, 16, 72, 77, -228, 78, -229, -8, -131, -8, -131, -50, 8, -49)
+
+[node name="level 2a" type="Area2D" parent="Levels"]
+position = Vector2(0, -133)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Levels/level 2a"]
+position = Vector2(1, -1)
+polygon = PackedVector2Array(-4, -26, 295, -23, 296, 125, -125, 125, -126, 33, -4, 33)
+
+[node name="level 2b" type="Area2D" parent="Levels"]
+position = Vector2(620, -65)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Levels/level 2b"]
+position = Vector2(6.25, -1.5)
+shape = SubResource("RectangleShape2D_p0ssl")
+
+[node name="level 2c" type="Area2D" parent="Levels"]
+position = Vector2(111, -438)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Levels/level 2c"]
+polygon = PackedVector2Array(-61, -24, 69, -25, 69, -75, 157, -76, 157, 21, -123, 21, -124, -78, -60, -78)
+
+[node name="level 3" type="Area2D" parent="Levels"]
+position = Vector2(-766, -97)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Levels/level 3"]
+position = Vector2(8, 4.5)
+shape = SubResource("RectangleShape2D_vldoy")
+
+[node name="Gates" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Gates"]
+position = Vector2(-225, 248)
+script = ExtResource("5_omswd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gates/StaticBody2D"]
+position = Vector2(377, -2.5)
+shape = SubResource("RectangleShape2D_u40xr")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Gates"]
+position = Vector2(-518, -89)
+script = ExtResource("5_omswd")
+threshold = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gates/StaticBody2D2"]
+position = Vector2(5, -4)
+shape = SubResource("RectangleShape2D_4op41")
+
+[connection signal="body_entered" from="Levels/level 1" to="Levels/level 1" method="_on_body_entered"]

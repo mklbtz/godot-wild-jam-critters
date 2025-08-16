@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciyiefs51edrx"]
+
+[ext_resource type="PackedScene" uid="uid://e5lk06pl88g3" path="res://bugs/bug_path.tscn" id="1_4hwes"]
+
+[node name="CirclePathRoot" type="Node2D"]
+
+[node name="Bug Path" parent="." instance=ExtResource("1_4hwes")]

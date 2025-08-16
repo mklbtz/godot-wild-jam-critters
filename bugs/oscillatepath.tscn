@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://wcby0thm0eim"]
+
+[ext_resource type="Script" uid="uid://cf3gkjxgc5qr7" path="res://Oscillate.gd" id="1_vldwl"]
+[ext_resource type="PackedScene" uid="uid://bcvjed8h68q1l" path="res://bugs/bugs.tscn" id="2_30wbh"]
+
+[sub_resource type="Curve2D" id="Curve2D_30wbh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 17.4126, 1.15962, 0, 0, 0, 0, 62, 1, 0, 0, 0, 0, 153, -2, 0, 0, 0, 0, 235, -1, 0, 0, 0, 0, 315, 0)
+}
+point_count = 6
+
+[node name="Oscillatepath" type="Path2D"]
+curve = SubResource("Curve2D_30wbh")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(0, -1)
+rotation = 0.0322469
+rotates = false
+loop = false
+script = ExtResource("1_vldwl")
+
+[node name="Bugs" parent="PathFollow2D" instance=ExtResource("2_30wbh")]
+position = Vector2(0.0322413, 0.99948)
+rotation = -0.0322469
+script = null

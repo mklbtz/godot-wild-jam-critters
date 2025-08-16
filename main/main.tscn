@@ -1,12 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1bd7np7a5lvu"]
+[gd_scene load_steps=6 format=3 uid="uid://b1bd7np7a5lvu"]
 
 [ext_resource type="PackedScene" uid="uid://edim5prbkh04" path="res://level1/level1.tscn" id="1_pjrb6"]
+[ext_resource type="Script" uid="uid://wn28c7oiv0td" path="res://level1/Arena.gd" id="2_3wy1v"]
 [ext_resource type="PackedScene" uid="uid://bw8rnbmndpy6y" path="res://frog/froggy.tscn" id="2_xwkvk"]
+[ext_resource type="Script" uid="uid://duqfy7yc8ils8" path="res://overworld/Level1Cam.gd" id="3_c651c"]
+[ext_resource type="PackedScene" uid="uid://c8vpb2eqmylhh" path="res://overworld/overworld.tscn" id="4_3wy1v"]
 
 [node name="Main" type="Node2D"]
 process_mode = 1
 
 [node name="level1" parent="." instance=ExtResource("1_pjrb6")]
+position = Vector2(-2645, 1563)
+script = ExtResource("2_3wy1v")
 
-[node name="froggy" parent="." instance=ExtResource("2_xwkvk")]
+[node name="froggy" parent="level1" instance=ExtResource("2_xwkvk")]
 position = Vector2(-54, -100)
+
+[node name="Level1Cam" type="Camera2D" parent="level1"]
+position = Vector2(2, 0)
+script = ExtResource("3_c651c")
+
+[node name="Overworld" parent="." instance=ExtResource("4_3wy1v")]
+position = Vector2(-1, 15)
